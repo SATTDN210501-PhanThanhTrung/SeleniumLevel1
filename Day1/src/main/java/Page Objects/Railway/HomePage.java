@@ -8,7 +8,6 @@ public class HomePage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(createAcc);
     }
 
-
     public HomePage open() {
         Constant.WEBDRIVER.navigate().to(Constant.RAILWAY_URL);
         return this;
@@ -18,4 +17,5 @@ public class HomePage extends GeneralPage {
         this.getLinkCreateAcc().click();
         return new HomePage();
     }
+
 }
