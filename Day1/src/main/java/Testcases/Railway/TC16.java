@@ -9,7 +9,7 @@ public class TC16 extends TestBase {
         HomePage homePage = new HomePage();
         LoginPage loginPage=new LoginPage();
         homePage.open();
-        System.out.println("2.Go to Login Page");
+        System.out.println("2.Go to Login Page.");
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         loginPage.gotoMyTicket();
