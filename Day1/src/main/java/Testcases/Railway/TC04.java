@@ -1,16 +1,22 @@
+import Common.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC04 extends Before{
-    @Test
+public class TC04 extends TestBase {
+    @Test(description = "User is redirected to Book ticket page after logging in")
     public void TC04() {
-        System.out.println("User is redirected to Book ticket page after logging in");
         HomePage homePage = new HomePage();
+        LoginPage loginPage=new LoginPage();
+        BookticketPage bookticketPage=new BookticketPage();
+        System.out.println("1. Go to RailWay web");
         homePage.open();
-        LoginPage loginPage = homePage.gotoLoginPage();
+        System.out.println("2. Go to Bookticket Page");
+        homePage.gotoBookticet();
+        System.out.println("3.Enters valid Email and Password");
+        System.out.println("4.Click on Login button");
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-        BookticketPage bookticketPage = homePage.gotoBookticet();
-        String actualMsg = bookticketPage.getTextBookticket();
+        homePage.gotoBookticet();
+        String actualMsg = bookticketPage.getBookticketTitle();
         String expectedMsg = "Book ticket";
         Assert.assertEquals(actualMsg, expectedMsg, "You are not logged in");
     }

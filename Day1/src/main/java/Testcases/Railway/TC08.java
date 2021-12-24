@@ -1,14 +1,21 @@
+import Common.Constant;
+import Common.Untilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC08 extends Before{
-    @Test
+public class TC08 extends TestBase {
+    @Test(description = "User can't login with an account hasn't been activated")
     public void TC08() {
-        System.out.println("User can't login with an account hasn't been activated");
         HomePage homePage = new HomePage();
+        LoginPage loginPage=new LoginPage();
+        System.out.println("1.Go to RailWay web");
         homePage.open();
-        LoginPage loginPage = homePage.gotoLoginPage();
-        String actualMsg = loginPage.login("trungphan123@gmail.com", Constant.PASSWORD).getErrorLogMsg();
+        System.out.println("2.Go to Login Page");
+        homePage.gotoLoginPage();
+        System.out.println("3.Enter username and password of account hasn't been activated.");
+        System.out.println("4.Click on Login button");
+        loginPage.login(Untilities.generateRandomEmail(), Constant.PASSWORD);
+        String actualMsg = loginPage.getErrorLogMsg();
         String expectedMsg = "Invalid username or password. Please try again.";
         Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
     }
