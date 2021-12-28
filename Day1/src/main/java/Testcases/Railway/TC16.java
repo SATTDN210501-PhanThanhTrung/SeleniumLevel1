@@ -23,13 +23,14 @@ public class TC16 extends TestBase {
         loginPage.gotoMyTicket();
         List<WebElement> beforeCancel = myTicket.getrowsOfCancelButton();
         System.out.println("6. Click Cancel button on your ticket");
+        String attribute = myTicket.getButtonCancel().getAttribute("onclick");
+        System.out.println(attribute);
         myTicket.clickCancelButton();
         Thread.sleep(1000);
         System.out.println("7. Accept cancel");
         Alert alt = Constant.WEBDRIVER.switchTo().alert();
         alt.accept();
         List<WebElement> afterCancel = myTicket.getrowsOfCancelButton();
-        int disapear = beforeCancel.size() - afterCancel.size();
-        Assert.assertTrue(disapear == 1, "Cancellation of the booked ticket failed");
+        Assert.assertTrue(beforeCancel.size() - afterCancel.size() == 1, "Cancellation of the booked ticket failed");
     }
 }

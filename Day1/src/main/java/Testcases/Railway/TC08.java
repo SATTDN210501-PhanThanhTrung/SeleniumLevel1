@@ -14,9 +14,9 @@ public class TC08 extends TestBase {
         homePage.gotoLoginPage();
         System.out.println("3.Enter username and password of account hasn't been activated.");
         System.out.println("4.Click on Login button");
-        loginPage.login(Untilities.generateRandomEmail(), Constant.PASSWORD);
-        String actualMsg = loginPage.getErrorLogMsg();
+        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        String actualMsg = loginPage.getWelcomeMessage();
         String expectedMsg = "Invalid username or password. Please try again.";
-        Assert.assertEquals(actualMsg, expectedMsg, "Error message is not displayed as expected");
+        Assert.assertEquals(actualMsg, expectedMsg, "User can login with an account hasn't been activated");
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MyTicket extends GeneralPage {
 
-    public final By btnCancel = By.xpath("//tbody/tr[count(//th[text()='Operation']/preceding-sibling::th)-7]//input[@value='Cancel']");
+    public final By btnCancel = By.xpath("//tbody/tr[count(//th[text()='Operation']/preceding-sibling::th)-8]//input[@value='Cancel']");
     public final By rowsOfCancelButton = By.xpath("//tbody//input[@value='Cancel']");
 
     public List<WebElement> getrowsOfCancelButton() {

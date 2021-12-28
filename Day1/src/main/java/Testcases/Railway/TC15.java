@@ -1,7 +1,9 @@
 import Common.Constant;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.Arrays;
+import java.util.List;
 
 public class TC15 extends TestBase {
     @Test(description = "Ticket price page displays with ticket details after clicking on check price link in Train timetable page")
@@ -10,8 +12,10 @@ public class TC15 extends TestBase {
         TimeTable timeTable=new TimeTable();
         LoginPage loginPage=new LoginPage();
         TicketPrice ticketPrice = new TicketPrice();
+        MyTicket myTicket=new MyTicket();
         System.out.println("1.Go to RailWay web");
         homePage.open();
+        System.out.println("2.Go to Login Page");
         homePage.gotoLoginPage();
         System.out.println("3.Enters valid Email and Password");
         System.out.println("4.Click on Login button");
