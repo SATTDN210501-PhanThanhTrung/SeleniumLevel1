@@ -1,9 +1,7 @@
 import Common.Constant;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.Arrays;
-import java.util.List;
 
 public class TC15 extends TestBase {
     @Test(description = "Ticket price page displays with ticket details after clicking on check price link in Train timetable page")
@@ -27,10 +25,11 @@ public class TC15 extends TestBase {
         timeTable.clickCheckPriceLink();
         String actualMsg = ticketPrice.getInforTicketPrice();
         System.out.println("verify all information of the ticket");
-        String[] expectedTicketPrice = {"HS : 90000", "SS : 115000", "SSC : 140000", "HB : 190000", "SB : 240000", "SBC : 290000"};
+        String[] expectedTicketPrice = {"HS : 310000", "SS : 335000", "SSC : 360000", "HB : 410000", "SB : 460000", "SBC : 510000"};
         String[] actualTicketPrice=ticketPrice.verifyAllInforOfTicket();
-        Assert.assertTrue(Arrays.equals(expectedTicketPrice,actualTicketPrice),"Information of ticket incorrect");
         Assert.assertEquals(actualMsg, expectedMsg, "The ticket information is incorrect");
+        Assert.assertTrue(Arrays.equals(expectedTicketPrice,actualTicketPrice),"Information of ticket incorrect");
+
 
     }
 }

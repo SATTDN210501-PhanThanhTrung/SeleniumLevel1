@@ -12,7 +12,7 @@ public class TC16 extends TestBase {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
         MyTicket myTicket = new MyTicket();
-        System.out.println("1. Navigate to Railway web");
+        System.out.println("1.Navigate to Railway web");
         homePage.open();
         System.out.println("2.Go to Login Page.");
         homePage.gotoLoginPage();
@@ -23,8 +23,6 @@ public class TC16 extends TestBase {
         loginPage.gotoMyTicket();
         List<WebElement> beforeCancel = myTicket.getrowsOfCancelButton();
         System.out.println("6. Click Cancel button on your ticket");
-        String attribute = myTicket.getButtonCancel().getAttribute("onclick");
-        System.out.println(attribute);
         myTicket.clickCancelButton();
         Thread.sleep(1000);
         System.out.println("7. Accept cancel");
