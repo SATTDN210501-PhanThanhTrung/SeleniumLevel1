@@ -10,7 +10,6 @@ public class TC15 extends TestBase {
         TimeTable timeTable=new TimeTable();
         LoginPage loginPage=new LoginPage();
         TicketPrice ticketPrice = new TicketPrice();
-        MyTicket myTicket=new MyTicket();
         System.out.println("1.Go to RailWay web");
         homePage.open();
         System.out.println("2.Go to Login Page");

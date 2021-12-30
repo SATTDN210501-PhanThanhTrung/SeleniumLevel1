@@ -1,20 +1,16 @@
 import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class BookticketPage extends GeneralPage {
 
     public final By lblBookticket = By.xpath("//h1[contains(text(),'Book ticket')]");
     public final By cbodepartDate = By.xpath("//select[@name='Date']");
-    public final By dblDepartDate = By.xpath("//select[@name='Date']/descendant::option[@value='6']");
     public final By cboDepartFrom = By.xpath("//select[@name='DepartStation']");
-    public final By dblDepartFrom = By.xpath("//select[@name='DepartStation']/descendant::option[@value='1']");
     public final By cboArriveAt = By.xpath("//select[@name='ArriveStation']");
-    public final By dblArriveAt = By.xpath("//select[@name='ArriveStation']/descendant::option[@value='4']");
     public final By cboSeattype = By.xpath("//select[@name='SeatType']");
-    public final By dblSeatType = By.xpath("//select[@name='SeatType']/descendant::option[@value='1']");
     public final By cboTicketAmount = By.xpath("//select[@name='TicketAmount']");
-    public final By dblTicketAmount = By.xpath("//select[@name='TicketAmount']/descendant::option[@value='1']");
     public final By btnBookTicket = By.xpath("//input[@value='Book ticket']");
     public final By lblBookTicketSuccessfully = By.xpath("//h1[normalize-space()='Ticket Booked Successfully!']");
     public final By dgdDepartStation = By.xpath("//tbody/tr[@class='OddRow']/td[count(//th[text()='Arrive Station']/preceding-sibling::th)]");
@@ -48,26 +44,6 @@ public class BookticketPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(cboTicketAmount);
     }
 
-    public WebElement getDatalistDepartDate() {
-        return Constant.WEBDRIVER.findElement(dblDepartDate);
-    }
-
-    public WebElement getDatalistDepartStation() {
-        return Constant.WEBDRIVER.findElement(dblDepartFrom);
-    }
-
-    public WebElement getDatalistArriveStation() {
-        return Constant.WEBDRIVER.findElement(dblArriveAt);
-    }
-
-    public WebElement getDatalistSeatType() {
-        return Constant.WEBDRIVER.findElement(dblSeatType);
-    }
-
-    public WebElement getDatalistTicketAmount() {
-        return Constant.WEBDRIVER.findElement(dblTicketAmount);
-    }
-
     public WebElement getLabelBookedSuccessFully() {
         return Constant.WEBDRIVER.findElement(lblBookTicketSuccessfully);
     }
@@ -96,46 +72,12 @@ public class BookticketPage extends GeneralPage {
         return Constant.WEBDRIVER.findElement(btnBookTicket);
     }
 
-    public void BookTicket() {
-        Constant.scrollIntoview();
-        this.getComboboxDepartDate().click();
-        this.getDatalistDepartDate().click();
-        this.getComboboxDepartSattion().click();
-        this.getDatalistDepartStation().click();
-        this.getComboboxArriveStation().click();
-        this.getDatalistArriveStation().click();
-        this.getComboboxSeatType().click();
-        this.getDatalistSeatType().click();
-        this.getComboboxTicketAmount().click();
-        this.getDatalistTicketAmount().click();
-    }
-
     public String getBookticketTitle() {
         return this.getLabelBookticket().getText();
     }
 
     public String getBookSucessfullyTitle() {
         return this.getLabelBookedSuccessFully().getText();
-    }
-
-    public String getTextOfDataListlDepartStation() {
-        return this.getDatalistDepartStation().getText();
-    }
-
-    public String getTextOfDataListArrStation() {
-        return this.getDatalistArriveStation().getText();
-    }
-
-    public String getTextOfDataListSeatType() {
-        return this.getDatalistSeatType().getText();
-    }
-
-    public String getTextOfDataListDepartDate() {
-        return this.getDatalistDepartDate().getText();
-    }
-
-    public String getTextOfDataListAmount() {
-        return this.getDatalistTicketAmount().getText();
     }
 
     public void clickBtnBookTicket() {
@@ -160,5 +102,30 @@ public class BookticketPage extends GeneralPage {
 
     public String getAmountDataOfTicket() {
         return this.getDataGridTicketAmount().getText();
+    }
+
+    public void selectDepartDate(String option) {
+        Select select = new Select(getComboboxDepartDate());
+        select.selectByVisibleText(option);
+    }
+
+    public void selectDepartFrom(String option) {
+        Select select = new Select(getComboboxDepartSattion());
+        select.selectByVisibleText(option);
+    }
+
+    public void selectArriveAt(String option) {
+        Select select = new Select(getComboboxArriveStation());
+        select.selectByVisibleText(option);
+    }
+
+    public void selectSeatType(String option) {
+        Select select = new Select(getComboboxSeatType());
+        select.selectByVisibleText(option);
+    }
+
+    public void selectTicketAmount(String option) {
+        Select select = new Select(getComboboxTicketAmount());
+        select.selectByVisibleText(option);
     }
 }

@@ -7,6 +7,7 @@ public class TC06 extends TestBase {
     public void TC06() {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
+        System.out.println("1.Go to RailWay web");
         homePage.open();
         System.out.println("2.Go to Login Page");
         homePage.gotoLoginPage();

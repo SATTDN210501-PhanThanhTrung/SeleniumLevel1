@@ -17,7 +17,6 @@ public class TC07 extends TestBase {
         registerPage.register(Untilities.generateRandomEmail(), Constant.PASSWORD, Constant.PASSWORD, Untilities.generateRandomString());
         String actualMsg = registerPage.getReConfirm();
         String expectedMsg = "You're here";
-        System.out.println();
         Assert.assertEquals(actualMsg, expectedMsg, "Registration successfully message is not displayed as expected");
     }
 }
