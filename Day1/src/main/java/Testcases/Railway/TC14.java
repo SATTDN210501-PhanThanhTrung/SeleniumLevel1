@@ -1,11 +1,11 @@
 import Common.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.util.HashMap;
 
 public class TC14 extends TestBase {
-    @Test(description = "User can book many tickets at a time", dataProviderClass = DataUtil.class, dataProvider = "dataProvider1")
-    public void TC14(HashMap<String, String> hashMap) {
+    @Test(description = "User can book many tickets at a time", dataProviderClass = DataUtil.class, dataProvider = "dataProvider2")
+    public void TC14(String data) throws InterruptedException {
+        String[] formInfor=data.split(",");
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
         BookticketPage bookticketPage = new BookticketPage();
@@ -23,28 +23,29 @@ public class TC14 extends TestBase {
         homePage.gotoBookticet();
 
         System.out.println("6.Select a Depart date from the list");
-        bookticketPage.selectDepartDate(hashMap.get("DepartDate"));
+        bookticketPage.selectDepartDate(formInfor[0]);
 
-        System.out.println("7.Select Sài Gòn for Depart from");
-        bookticketPage.selectDepartFrom(hashMap.get("DepartFrom"));
+        System.out.println("7.Select Depart from");
+        bookticketPage.selectDepartFrom(formInfor[1]);
+        Thread.sleep(1000);
 
-        System.out.println("8. Select Đà Nẵng for Arrive at");
-        bookticketPage.selectArriveAt(hashMap.get("ArriveAt"));
+        System.out.println("8. Select Arrive at");
+        bookticketPage.selectArriveAt(formInfor[2]);
 
-        System.out.println("8.Select Hard Seat for Seat type");
-        bookticketPage.selectSeatType(hashMap.get("SeatType"));
+        System.out.println("8.Select Seat type");
+        bookticketPage.selectSeatType(formInfor[3]);
 
-        System.out.println("9.Select 1 for Ticket amount");
-        bookticketPage.selectTicketAmount(hashMap.get("TicketAmount"));
+        System.out.println("9.Select Ticket amount");
+        bookticketPage.selectTicketAmount(formInfor[4]);
 
         System.out.println("10.Click on Book ticket button");
         bookticketPage.clickBtnBookTicket();
 
-        String expectedDepartStation = hashMap.get("DepartFrom");
-        String expectedArStation = hashMap.get("ArriveAt");
-        String expectedSeatType = hashMap.get("SeatType");
-        String expectedDepartDate = hashMap.get("DepartDate");
-        String expectedAmout = hashMap.get("TicketAmount");
+        String expectedDepartStation = formInfor[1];
+        String expectedArStation = formInfor[2];
+        String expectedSeatType = formInfor[3];
+        String expectedDepartDate = formInfor[0];
+        String expectedAmout = formInfor[4];
         String expectedMsg = "Ticket Booked Successfully!";
 
         String actualMsg = bookticketPage.getBookSucessfullyTitle();

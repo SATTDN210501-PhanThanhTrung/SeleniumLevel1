@@ -1,7 +1,18 @@
- {
-    "DepartDate": "1/10/2022",
-    "DepartFrom": "Sài Gòn",
-    "ArriveAt": "Đà Nẵng",
-    "SeatType": "Hard seat",
-    "TicketAmount": "1"
-  }
+{
+  "TC14": [
+    {
+      "DepartDate": "1/10/2022",
+      "DepartFrom": "Sài Gòn",
+      "ArriveAt": "Đà Nẵng",
+      "SeatType": "Hard seat",
+      "TicketAmount": "1"
+    },
+    {
+      "DepartDate": "1/11/2022",
+      "DepartFrom": "Đà Nẵng",
+      "ArriveAt": "Huế",
+      "SeatType": "Soft seat",
+      "TicketAmount": "2"
+    }
+  ]
+}
