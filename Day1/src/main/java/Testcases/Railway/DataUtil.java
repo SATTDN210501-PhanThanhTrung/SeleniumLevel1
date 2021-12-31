@@ -4,7 +4,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.DataProvider;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -17,7 +16,6 @@ public class DataUtil extends TestBase {
     public Object[] dataProvider1() {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = null;
-
         try {
             Object obj = parser.parse(new FileReader(Untilities.getProjectPath() + "\\src\\main\\java\\DataObject\\data2.json"));
             jsonObject = (JSONObject) obj;

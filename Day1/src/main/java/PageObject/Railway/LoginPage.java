@@ -47,7 +47,7 @@ public class LoginPage extends GeneralPage {
     }
 
     public void login(String username, String password) {
-        Constant.scrollIntoview();
+        Untilities.scrollIntoview();
         getTextUserName().sendKeys(username);
         getTextPassWord().sendKeys(password);
         getButtonLogin().click();

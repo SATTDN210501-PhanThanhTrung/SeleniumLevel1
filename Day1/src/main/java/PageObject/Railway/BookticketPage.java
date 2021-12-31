@@ -18,7 +18,8 @@ public class BookticketPage extends GeneralPage {
     public final By dgdSeatType = By.xpath("//tbody/tr[@class='OddRow']/td[count(//th[text()='Arrive Station']/preceding-sibling::th)+2]");
     public final By dgdDepartDate = By.xpath("//tbody/tr[@class='OddRow']/td[count(//th[text()='Arrive Station']/preceding-sibling::th)+3]");
     public final By dgdAmount = By.xpath("//tbody/tr[@class='OddRow']/td[count(//th[text()='Arrive Station']/preceding-sibling::th)+6]");
-
+    public final By lblErrorBookTicetMsg = By.xpath("//p[@class='message error']");
+    public final By lblErrorTicketAmountMsg = By.xpath("//label[normalize-space()='You have booked 10 tickets. You can book no more.']");
 
     public WebElement getLabelBookticket() {
         return Constant.WEBDRIVER.findElement(lblBookticket);
@@ -70,6 +71,14 @@ public class BookticketPage extends GeneralPage {
 
     public WebElement getButtonBookTicket() {
         return Constant.WEBDRIVER.findElement(btnBookTicket);
+    }
+
+    public WebElement getLabelErrorBookTicketMsg() {
+        return Constant.WEBDRIVER.findElement(lblErrorBookTicetMsg);
+    }
+
+    public WebElement getLabelErrorTicketAmountMsg() {
+        return Constant.WEBDRIVER.findElement(lblErrorTicketAmountMsg);
     }
 
     public String getBookticketTitle() {
@@ -127,5 +136,13 @@ public class BookticketPage extends GeneralPage {
     public void selectTicketAmount(String option) {
         Select select = new Select(getComboboxTicketAmount());
         select.selectByVisibleText(option);
+    }
+
+    public String getTextErrorBookTicketMsg() {
+        return getLabelErrorBookTicketMsg().getText();
+    }
+
+    public String getTextErrorTicketAmountMsg() {
+        return getLabelErrorTicketAmountMsg().getText();
     }
 }

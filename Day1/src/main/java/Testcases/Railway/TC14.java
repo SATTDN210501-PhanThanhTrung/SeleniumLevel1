@@ -9,6 +9,7 @@ public class TC14 extends TestBase {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
         BookticketPage bookticketPage = new BookticketPage();
+
         System.out.println("1.Go to RailWay web");
         homePage.open();
 
@@ -41,19 +42,23 @@ public class TC14 extends TestBase {
         System.out.println("10.Click on Book ticket button");
         bookticketPage.clickBtnBookTicket();
 
-        String expectedDepartStation = formInfor[1];
-        String expectedArStation = formInfor[2];
-        String expectedSeatType = formInfor[3];
-        String expectedDepartDate = formInfor[0];
-        String expectedAmout = formInfor[4];
+        String actualMsg = bookticketPage.getBookSucessfullyTitle();
         String expectedMsg = "Ticket Booked Successfully!";
 
-        String actualMsg = bookticketPage.getBookSucessfullyTitle();
         String actualDepartStation = bookticketPage.getDepartStationDataOfTicket();
+        String expectedDepartStation = formInfor[1];
+
         String actualArStation = bookticketPage.getArrStationDataOfTicket();
+        String expectedArStation = formInfor[2];
+
         String actualSeatType = bookticketPage.getSeatTypeDataOfTicket();
+        String expectedSeatType = formInfor[3];
+
         String actualDepartDate = bookticketPage.getDepartDateDataOfTicket();
+        String expectedDepartDate = formInfor[0];
+
         String actualAmout = bookticketPage.getAmountDataOfTicket();
+        String expectedAmout = formInfor[4];
 
         Assert.assertEquals(actualMsg, expectedMsg, "Book tickets failed");
         Assert.assertEquals(actualDepartStation, expectedDepartStation, "DepartStation is not same");

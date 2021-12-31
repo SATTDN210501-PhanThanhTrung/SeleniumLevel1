@@ -1,7 +1,6 @@
 import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +29,7 @@ public class TicketPrice extends GeneralPage {
 
     public String[] actualTicketPrice = {};
     List<String> actualSeatTypeList = new ArrayList<>(Arrays.asList(actualTicketPrice));
-
-    public String[] verifyAllInforOfTicket() {
+    public String[] getAllInforOfTicket() {
         for (int i = 0; i < getSeatType().size(); i++) {
             String actualSeatType = getSeatType().get(i).getText() + " : " + getPrice().get(i).getText();
             actualSeatTypeList.add(actualSeatType);

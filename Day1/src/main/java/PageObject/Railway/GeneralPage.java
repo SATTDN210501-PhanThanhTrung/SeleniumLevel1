@@ -1,7 +1,6 @@
 import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 public class GeneralPage {
 
@@ -77,11 +76,6 @@ public class GeneralPage {
         getTabChangePassWord().click();
     }
 
-    public TicketPrice gotoTicketPrice() {
-        getTabTicketPrice().click();
-        return new TicketPrice();
-    }
-
     public void gotoTimeTable() {
         getTabTimeTabel().click();
     }
@@ -96,7 +90,6 @@ public class GeneralPage {
     }
 
     public String getWelcomeMessage() {
-        PageFactory.initElements(Constant.WEBDRIVER, this);
         return getLabelWelcome().getText();
     }
 
