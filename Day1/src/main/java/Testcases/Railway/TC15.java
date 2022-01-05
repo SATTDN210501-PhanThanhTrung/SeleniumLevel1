@@ -1,4 +1,3 @@
-import Common.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.Arrays;
@@ -10,6 +9,8 @@ public class TC15 extends TestBase {
         TimeTable timeTable=new TimeTable();
         LoginPage loginPage=new LoginPage();
         TicketPrice ticketPrice = new TicketPrice();
+        String departFrom="Sài Gòn";
+        String arriveAt="Đà Nẵng";
 
         System.out.println("1.Go to RailWay web");
         homePage.open();
@@ -24,10 +25,10 @@ public class TC15 extends TestBase {
         System.out.println("5.Go to TimeTable Page");
         homePage.gotoTimeTable();
 
-        String expectedMsg = "Ticket price from " + timeTable.getDepartSationOnTT() + " to " + timeTable.getArriveSationOnTT();
+        String expectedMsg = "Ticket price from " + timeTable.getDepartSationOnTT(departFrom,arriveAt) + " to " + timeTable.getArriveSationOnTT(arriveAt,departFrom);
 
-        System.out.println("6.Click checkprice link Sài Gòn to Phan Thiết");
-        timeTable.clickCheckPriceLink();
+        System.out.println("6.Click checkprice link ");
+        timeTable.clickCheckPriceLink(departFrom,arriveAt);
 
         String actualMsg = ticketPrice.getInforTicketPrice();
 

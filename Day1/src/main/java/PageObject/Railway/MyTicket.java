@@ -1,5 +1,3 @@
-import Common.Constant;
-import Common.Untilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.NoSuchElementException;
@@ -13,7 +11,7 @@ public class MyTicket extends GeneralPage {
     }
 
     public void clickCancelButton() {
-        Untilities.scrollIntoview();
+        Utilities.scrollIntoview();
         getButtonCancel().click();
     }
 

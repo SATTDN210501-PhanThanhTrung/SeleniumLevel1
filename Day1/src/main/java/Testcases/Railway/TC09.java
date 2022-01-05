@@ -1,5 +1,3 @@
-import Common.Constant;
-import Common.Untilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,22 +7,28 @@ public class TC09 extends TestBase {
         HomePage homePage = new HomePage();
         LoginPage loginPage = new LoginPage();
         ChangePassWord changePassWord = new ChangePassWord();
+        RegisterPage registerPage =new RegisterPage();
 
-        System.out.println("1.Go to RailWay web");
+        System.out.println("Pre-Condition");
         homePage.open();
+        homePage.gotoRegister();
+        registerPage.register(Utilities.generateRandomEmail(), Constant.PASSWORD, Constant.PASSWORD, Utilities.generateRandomString());
+        String useName = registerPage.getTextEmail().getAttribute("value");
+        registerPage.clickRegisterButton();
 
+        System.out.println("1.Navigate to Railway Website");
         System.out.println("2.Go to Login Page");
         homePage.gotoLoginPage();
 
         System.out.println("3.Enters valid Email and Password");
         System.out.println("4.Click on Login button");
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
+        loginPage.login(useName, Constant.PASSWORD);
 
         System.out.println("5.Go to Change PassWord Page");
         homePage.gotoChangePassword();
 
         System.out.println("6.Enter valid information into Current Password textbox but enter different information into NewPassword and ConfirmPassword");
-        changePassWord.changePassWord(Constant.PASSWORD, Untilities.generateRandomString(), Untilities.generateRandomString());
+        changePassWord.changePassWord(Constant.PASSWORD, Utilities.generateRandomString(), Utilities.generateRandomString());
 
         String actualMsg1 = changePassWord.getErrorChangePW();
         String expectedMsg1 = "Password change failed. Please correct the errors and try again.";

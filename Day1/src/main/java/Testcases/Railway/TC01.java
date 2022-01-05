@@ -1,4 +1,3 @@
-import Common.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -6,9 +5,9 @@ public class TC01 extends TestBase {
     @Test(description = "Verify that user can login successfully when enters vaild Username and Password")
     public void TC01() {
         HomePage homePage = new HomePage();
-        LoginPage loginPage=new LoginPage();
+        LoginPage loginPage = new LoginPage();
 
-        System.out.println("1.Go to RailWay web");
+        System.out.println("1.Go to Railway web");
         homePage.open();
 
         System.out.println("2.Go to Login Page");

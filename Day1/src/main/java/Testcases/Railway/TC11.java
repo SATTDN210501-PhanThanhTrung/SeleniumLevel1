@@ -1,4 +1,3 @@
-import Common.Untilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,8 +14,10 @@ public class TC11 extends TestBase {
         homePage.gotoRegister();
 
         System.out.println("3.Enter valid email address and leave other fields empty");
+        registerPage.register(Utilities.generateRandomEmail(), "", "", "");
+
         System.out.println("4.Click on Register button");
-        registerPage.register(Untilities.generateRandomEmail(), "", "", "");
+        registerPage.clickRegisterButton();
 
         String actualMsg1 = registerPage.getErrorMsg();
         String expectedMsg1 = "There're errors in the form. Please correct the errors and try again.";

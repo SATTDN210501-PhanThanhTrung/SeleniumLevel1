@@ -1,4 +1,3 @@
-import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,7 +12,7 @@ public class GeneralPage {
     public final By tabTicketPrice = By.xpath("//a[@href='/Page/TrainPriceListPage.cshtml']");
     public final By tabMyTicket = By.xpath("//a[@href='/Page/ManageTicket.cshtml']");
     public final By tabContact = By.xpath("//a[@href='/Page/Contact.cshtml']");
-    public final By lbbMyWelcomeMessage = By.xpath("//*[@id=\"banner\"]/div/strong");
+    public final By lbbMyWelcomeMessage = By.tagName("strong");
 
     public WebElement getTabLogout() {
         return Constant.WEBDRIVER.findElement(tabLogout);

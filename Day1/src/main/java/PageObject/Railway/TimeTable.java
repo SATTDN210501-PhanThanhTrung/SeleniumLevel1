@@ -1,36 +1,34 @@
-import Common.Constant;
-import Common.Untilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class TimeTable extends GeneralPage {
 
-    public final By lnkCheckPrice = By.xpath("//td[text()='Đà Nẵng']/following-sibling::td[text()='Sài Gòn']/../td[count(//th[text()='Depart Time']/preceding-sibling::th)+3]/a");
-    public final By dgdDepartStaion = By.xpath("//td[text()='13']/following-sibling::td[text()='Đà Nẵng']");
-    public final By dgdArrivetStaion = By.xpath("//td[text()='13']/following-sibling::td[text()='Sài Gòn']");
+    public final String lnkCheckPrice = "//td[text()='%s']/following-sibling::td[text()='%s']/../td[count(//th[text()='Check Price']/preceding-sibling::th)+1]/a";
+    public final String dgdDepartStaion = "//td[text()='%s']/following-sibling::td[text()='%s']";
+    public final String dgdArrivetStaion = "//td[text()='%s']/preceding-sibling::td[text()='%s']";
 
-    public WebElement getLinkCheckPrice() {
-        return Constant.WEBDRIVER.findElement(lnkCheckPrice);
+    public WebElement getLinkCheckPrice(String departFrom, String arriveAt) {
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(lnkCheckPrice, departFrom, arriveAt)));
     }
 
-    public WebElement getDataGridDepartStation() {
-        return Constant.WEBDRIVER.findElement(dgdDepartStaion);
+    public WebElement getDataGridDepartStation(String departFrom, String arriveAt) {
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(dgdDepartStaion, departFrom, arriveAt)));
     }
 
-    public WebElement getDataGridArriveStation() {
-        return Constant.WEBDRIVER.findElement(dgdArrivetStaion);
+    public WebElement getDataGridArriveStation(String arriveAt, String departFrom) {
+        return Constant.WEBDRIVER.findElement(By.xpath(String.format(dgdArrivetStaion, arriveAt, departFrom)));
     }
 
-    public void clickCheckPriceLink() {
-        Untilities.scrollIntoview();
-        getLinkCheckPrice().click();
+    public void clickCheckPriceLink(String departFrom, String arriveAt) {
+        Utilities.scrollIntoview();
+        getLinkCheckPrice(departFrom, arriveAt).click();
     }
 
-    public String getDepartSationOnTT() {
-        return getDataGridDepartStation().getText();
+    public String getDepartSationOnTT(String departFrom, String arriveAt) {
+        return getDataGridDepartStation(departFrom,arriveAt).getText();
     }
 
-    public String getArriveSationOnTT() {
-        return getDataGridArriveStation().getText();
+    public String getArriveSationOnTT(String arriveAt, String departFrom) {
+        return getDataGridArriveStation(arriveAt,departFrom).getText();
     }
 }

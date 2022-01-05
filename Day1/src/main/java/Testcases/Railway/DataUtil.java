@@ -1,4 +1,4 @@
-import Common.Untilities;
+import com.google.gson.JsonObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -17,7 +17,7 @@ public class DataUtil extends TestBase {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = null;
         try {
-            Object obj = parser.parse(new FileReader(Untilities.getProjectPath() + "\\src\\main\\java\\DataObject\\data2.json"));
+            Object obj = parser.parse(new FileReader(Utilities.getProjectPath() + "\\src\\main\\java\\DataObject\\data2.json"));
             jsonObject = (JSONObject) obj;
         } catch (IOException | ParseException exception) {
             exception.printStackTrace();
@@ -40,21 +40,27 @@ public class DataUtil extends TestBase {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject ;
 
+        //read json file
         Object obj=null;
         try {
-            obj = parser.parse(new FileReader(Untilities.getProjectPath() + "\\src\\main\\java\\DataObject\\data.json"));
+            obj = parser.parse(new FileReader(Utilities.getProjectPath() + "\\src\\main\\java\\DataObject\\data.json"));
         } catch (IOException | ParseException exception) {
             exception.printStackTrace();
         }
         jsonObject=(JSONObject) obj;
 
+        //lấy các giá trị trong file json ra
         assert jsonObject !=null;
         JSONArray formInfor=(JSONArray) jsonObject.get("TC14");
 
+        //Create mảng String có độ dài=forminfor để chứa các giá trị
         String[] dataArray=new String[formInfor.size()];
+
+        //Jsonobject to read each jsonarray object
         JSONObject formInforData;
         String departDate,departFrom,arriveAt,seatType,ticketAmount;
 
+        //lấy data từ Jsonarray ra và đưa nó vào mảng string
         for(int i=0;i<formInfor.size();i++){
             formInforData=(JSONObject) formInfor.get(i);
             departDate=(String) formInforData.get("DepartDate");
@@ -68,4 +74,5 @@ public class DataUtil extends TestBase {
         }
         return dataArray;
     }
+
 }

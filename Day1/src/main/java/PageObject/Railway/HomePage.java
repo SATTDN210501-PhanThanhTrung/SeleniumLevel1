@@ -1,10 +1,9 @@
-import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class HomePage extends GeneralPage {
 
-    public final By lblWelcomeHomePage = By.xpath("//h1[contains(text(),'Welcome to Safe Railway')]");
+    public final By lblWelcomeHomePage = By.tagName("h1");
 
     public WebElement getLabelWelcomeHP() {
         return Constant.WEBDRIVER.findElement(lblWelcomeHomePage);

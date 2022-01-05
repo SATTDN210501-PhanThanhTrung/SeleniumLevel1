@@ -1,4 +1,3 @@
-import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
@@ -8,7 +7,7 @@ import java.util.List;
 public class TicketPrice extends GeneralPage {
 
     public final By inforOfTicket = By.xpath("//tr[@class='TableSmallHeader']/th");
-    public final By seatType = By.xpath("//th[normalize-space()='Seat type']/following-sibling::td[text()='HS']/../td");
+    public final By seatType = By.xpath("//th[normalize-space()='Seat type']/following-sibling::td");
     public final By price = By.xpath("//th[normalize-space()='Price (VND)']/following-sibling::td");
 
     public WebElement getInforOfTicket() {

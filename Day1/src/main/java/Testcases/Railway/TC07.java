@@ -1,5 +1,3 @@
-import Common.Constant;
-import Common.Untilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -16,8 +14,10 @@ public class TC07 extends TestBase {
         homePage.gotoRegister();
 
         System.out.println("3. Enter valid information into all fields");
+        registerPage.register(Utilities.generateRandomEmail(), Constant.PASSWORD, Constant.PASSWORD, Utilities.generateRandomString());
+
         System.out.println("4. Click on Register button");
-        registerPage.register(Untilities.generateRandomEmail(), Constant.PASSWORD, Constant.PASSWORD, Untilities.generateRandomString());
+        registerPage.clickRegisterButton();
 
         String actualMsg = registerPage.getReConfirm();
         String expectedMsg = "You're here";

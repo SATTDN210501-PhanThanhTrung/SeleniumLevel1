@@ -1,4 +1,3 @@
-import Common.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -15,7 +14,7 @@ public class RegisterPage extends GeneralPage {
     public final By lblErrorPassWordMsg=By.xpath("//label[normalize-space()='Invalid password length']");
     public final By lblErrorPIDMsg=By.xpath("//label[normalize-space()='Invalid ID length']");
     public final By lblErrorDontMatchMsg=By.xpath("//label[normalize-space()='The two passwords do not match']");
-    public final By lblErrorAlreadyEmailMsg=By.xpath("//p[contains(text(),'This email address is already in use.')]");
+    public final By lblErrorAlreadyEmailMsg=By.xpath("//p[@class='message error']");
     public WebElement getLabelRegisterConfirm() {
         return Constant.WEBDRIVER.findElement(lblRegisterConfirm);
     }
@@ -63,6 +62,9 @@ public class RegisterPage extends GeneralPage {
         getTextPassWord().sendKeys(password);
         getTextConfirmPassWord().sendKeys(confirmpw);
         getTextPID().sendKeys(pid);
+
+    }
+    public void clickRegisterButton(){
         getButtonRegister().click();
     }
 

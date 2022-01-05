@@ -1,5 +1,3 @@
-import Common.Constant;
-import Common.Untilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,7 +15,7 @@ public class TC03 extends TestBase {
 
         System.out.println("3.Enters valid Email and Password");
         System.out.println("4.Click on Login button");
-        loginPage.login(Constant.USERNAME, Untilities.generateRandomString());
+        loginPage.login(Constant.USERNAME, Utilities.generateRandomString());
 
         String actualMsg = loginPage.getErrorLogMsg();
         String expectedMsg = "Invalid username or password. Please try again.";

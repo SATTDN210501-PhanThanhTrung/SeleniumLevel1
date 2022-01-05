@@ -1,12 +1,12 @@
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class TestBase {
+public class TestBase2 {
     @BeforeMethod
     public void beforeMethod() {
-        System.setProperty("webdriver.chrome.driver", Utilities.getProjectPath() + "\\src\\main\\resources\\Executables\\chromedriver.exe");
-        Constant.WEBDRIVER = new ChromeDriver();
+        System.setProperty("webdriver.gecko.driver", Utilities.getProjectPath() + "\\src\\main\\resources\\Executables\\geckodriver.exe");
+        Constant.WEBDRIVER = new FirefoxDriver();
     }
 
     @AfterMethod
