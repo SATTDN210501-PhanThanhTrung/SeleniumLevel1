@@ -1,13 +1,23 @@
 {
   "TC14": {
-    "DepartFrom": "Sài Gòn",
-    "ArriveAt": "Đà Nẵng",
+    "DepartFrom": "Đà Nẵng",
+    "ArriveAt": "Huế",
     "SeatType": "Hard seat",
     "TicketAmount": "1"
   },
-  "TC16": {
+  "TC15": {
     "DepartFrom": "Sài Gòn",
     "ArriveAt": "Đà Nẵng",
+    "SeatTypeHS": "HS:310000",
+    "SeatTypeSS": "SS:335000",
+    "SeatTypeSSC": "SSC:360000",
+    "SeatTypeHB": "HB:410000",
+    "SeatTypeSB": "SB:460000",
+    "SeatTypeSBC": "SBC:510000"
+  },
+  "TC16": {
+    "DepartFrom": "Đà Nẵng",
+    "ArriveAt": "Huế",
     "SeatType": "Hard seat",
     "TicketAmount": "1"
   },

@@ -1,9 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Parallel test suite" parallel="classes" thread-count="2">
-    <test name="Test 1">
-        <classes>
-            <class name="TC01"/>
-            <class name="TC02"/>
-        </classes>
+<suite name="Suite">
+    <test name="Test">
+        <packages>
+            <package name="Railway" />
+        </packages>
     </test>
 </suite>
